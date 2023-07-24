@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ojire - Roles</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar accordion" id="accordionSidebar"> <a
+                class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon"> <img src="/img/logo_ojire_blue_full.png" class="w-75" alt="" srcset="">
+                </div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top">
+                    <h5 class="mb-0 ml-2">CS Admin</h5> <button id="sidebarToggleTop"
+                        class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow"> <a class="nav-link dropdown-toggle" href="#"
+                                id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"> <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                                    id="currentUser" name="currentUser"></span> <img class="img-profile rounded-circle"
+                                    src="/img/undraw_profile.svg"> </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown"> <a class="dropdown-item" href="#" data-toggle="modal"
+                                    data-target="#logoutModal"> <i
+                                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ingin mengakhiri sesi?</h5> <button
+                                    class="close" type="button" data-dismiss="modal" aria-label="Close"> <span
+                                        aria-hidden="true">×</span> </button>
+                            </div>
+                            <div class="modal-body">Pilih "Keluar" pada menu di bawah bila ingin mengakhiri sesi Anda.
+                            </div>
+                            <div class="modal-footer"> <button class="btn btn-secondary" type="button"
+                                    data-dismiss="modal">Batal</button> <a class="btn btn-primary"
+                                    href="/logout">Keluar</a> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <form action="/merchants" method="get">
+                        <div class="row mb-4 mx-0">
+                            <div class="col-12 search-group">
+                                <div class="row py-3 px-2 ">
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="form-group"> <label for="username" class="">Nama Pedagang</label>
+                                            <input name="merchantName" type="text" class="form-control" id="username"
+                                                placeholder=""> </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="form-group"> <label for="business" class="">Nama Toko</label> <input
+                                                name="businessName" type="text" class="form-control" id="business"
+                                                placeholder=""> </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="form-group"> <label for="account" class="">ID Pedagang</label>
+                                            <input name="account" type="text" class="form-control" id="account"
+                                                placeholder=""> </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="form-group"> <label for="transaction-status" class="">Status
+                                                Pendaftaran</label> <select class="form-control" id="transaction-status"
+                                                name="status">
+                                                <option disabled selected>Pilih</option>
+                                                <option value="new">NEW!</option>
+                                                <option value="open">OPEN</option>
+                                                <option value="request approval">REQUEST APPROVAL</option>
+                                                <option value="pending">PENDING</option>
+                                                <option value="approved">APPROVED</option>
+                                                <option value="rejected">REJECTED</option>
+                                                <option value="disabled">DISABLED</option>
+                                            </select> </div>
+                                    </div>
+                                    <div class="col-3"> <label for="transaction-status" class="">Tanggal</label>
+                                        <div class="form-group d-flex">
+                                            <div class="date-icon"> <i class="fa-solid fa-calendar-days px-2"></i>
+                                            </div> <input name="daterange" placeholder="Selected date"
+                                                id="date-picker-example" class="form-control datepicker pl-0">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="d-sm-flex align-items-center justify-content-between search-button">
+                                            <button type="submit"
+                                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm px-3"><i
+                                                    class="fa-solid fa-magnifying-glass mr-1"></i>Cari Pedagang
+                                            </button> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="d-sm-flex align-items-center justify-content-between search-button">
+                                            <a href="/merchants/new"
+                                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm px-3">
+                                                <i class="fa-solid fa-magnifying-glass mr-1"></i>Tambah Pedagang Baru
+                                            </a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="card shadow mb-4">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table" id="example" width="100%" cellspacing="0">
+                                  <thead>
+                                  <tr>
+                                      <th>ID Pedagang</th>
+                                      <th>Nama Pedagang</th>
+                                      <th>Nama Toko</th>
+                                      <th>Tanggal Bergabung</th>
+                                      <th>Status</th>
+                                      <th></th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  {{range .merchants}}
+                                      <tr>
+                                          <td>{{.ID}}</td>
+                                          <td>{{.Name}}</td>
+                                          <td>{{.StoreName}}</td>
+                                          <td>{{.JoinedAt}}</td>
+                                          <td><span class="badge 
+                                                      {{if eq .Status "new"}} badge-primary {{end}}
+                                                      {{if eq .Status "open"}} badge-info {{end}}
+                                                      {{if eq .Status "pending"}} badge-secondary {{end}}
+                                                      {{if eq .Status "approved"}} badge-success {{end}}
+                                                      {{if eq .Status "rejected"}} badge-danger {{end}}
+                                                      {{if eq .Status "request approval"}} badge-warning {{end}}">{{.Status}}</span></td>
+                                          <td><a href="/merchant_details?merchantId={{.ID}}">Lihat Detil</a></td>
+                                      </tr>
+                                  {{end}}
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                    <script> 
+                    function titleCase(st) {
+                        return st.toLowerCase().split(" ").reduce((s, c) => s + "" + (c.charAt(0).toUpperCase() + c.slice(1) + " "), '');
+                    }
+                    document.getElementById("currentUser").innerHTML = "Elfath Egotypalas"
+                    const page = [] 
+                    page.push("users")
+                    page.push("transactions")
+                    page.push("merchants")
+                    page.push("404") 
+                    p = [...new Set(page)]
+                    let ul = document.getElementById("accordionSidebar") 
+                    p.forEach(function(value) {
+                        if (value !== "404" && value !== "403") {
+                            console.log("set link to " + value) 
+                            let li = document.createElement("li");
+                            li.classList.add("nav-item");
+                            li.classList.add("mt-2");
+                            let a = document.createElement("a");
+                            a.classList.add("nav-link");
+                            a.href = "/" + value;
+                            let span = document.createElement("span");
+                            let i = document.createElement("i");
+                            i.classList.add("fa-solid");
+                            i.classList.add("fa-chevron-right");
+                            i.classList.add("mx-2");
+                            span.appendChild(i) 
+                            span.innerHTML = titleCase(value);
+                            a.appendChild(span);
+                            li.appendChild(a);
+                            ul.appendChild(li);
+                        }
+                    }) 
+                    let a = document.getElementsByClassName("number") 
+                    let b = document.getElementsByClassName("money") 
+                    for (let index = 0; index < a.length; index++) {
+                        a.item(index).innerHTML = Number(a.item(index).innerHTML).toLocaleString("id-ID") 
+                    }
+                    for (let index = 0; index < b.length; index++) {
+                        b.item(index).innerHTML = Number(b.item(index).innerHTML).toLocaleString("id-ID", {
+                            style: 'currency',
+                            currency: "IDR",
+                            currencyDisplay: 'symbol'
+                        })
+                    } 
+                    </script>
+                </div>
+            </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto"> <span>Hak Cipta &copy; 2023 OJIRE</span> </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script> 
+        function holdTransaction(trx_id) {
+            var holdDescription = document.getElementById("holdDescription");
+        }
+        $('#holdmodal').on('shown.bs.modal', function () {
+            $('#holdDescription').trigger('focus');
+        });
+        $(document).ready(function () {
+            $('#mcc').select2();
+            $('#example').DataTable({
+                scrollX: true,
+                pageLength: 10,
+                searching: true,
+                ordering: true,
+                info: true,
+                lengthChange: true,
+                "language": {
+                    "paginate": {
+                        "next": '<i class="fa-solid fa-chevron-right"></i>',
+                        "previous": '<i class="fa-solid fa-chevron-left"></i>',
+                    }
+                }
+            });
+        });
+
+        $('input[name="daterange"]').daterangepicker({
+            locale: {
+                format: 'YYYY/MM/DD'
+            }
+        },function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY/MM/DD') + ' to ' + end.format('YYYY/MM/DD'));
+        });
+    </script>
+</body>
+
+</html>

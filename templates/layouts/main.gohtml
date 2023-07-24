@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{{ template "header" . }}
+
+<body class="g-sidenav-show  bg-gray-100">
+  {{ template "sidebar" . }}
+  
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    {{ template "navbar" . }}
+    {{embed}}
+    {{ template "footer" . }}
+  </main>
+
+  {{ template "fixed-plugin" . }}
+  {{ template "scripts" . }}
+</body>
+</html>

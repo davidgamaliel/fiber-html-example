@@ -1,0 +1,115 @@
+    <form action="/merchants" method="get">
+        <div class="row mb-4 mx-0">
+            <div class="col-12 search-group">
+                <div class="row py-3 px-2 ">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label for="username" class="">Nama Pedagang</label>
+                            <input name="name" type="text" class="form-control" id="username" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label for="business" class="">Nama Toko</label>
+                            <input name="store-name" type="text" class="form-control" id="business" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label for="account" class="">ID Pedagang</label>
+                            <input name="id" type="text" class="form-control" id="account" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label for="transaction-status" class="">Status Pendaftaran</label>
+                            <select class="form-control" id="status" name="status">
+                                <option disabled selected>Pilih</option>
+                                <option value="0">NEW!</option>
+                                <option value="1">OPEN</option>
+                                <option value="2">REQUEST APPROVAL</option>
+                                <option value="3">PENDING</option>
+                                <option value="4">APPROVED</option>
+                                <option value="5">REJECTED</option>
+                                <option value="6">DISABLED</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="col-3">
+                        <div class="form-group mb-1">
+                            <label for="transaction-status" class="">MCC Code</label>
+                            <select class="form-control" id="transaction-status">
+                                <option disabled selected>Select</option>
+                                <option>Accepted</option>
+                                <option>Cancel</option>
+                                <option>Pending</option>
+                            </select>
+                        </div>
+                    </div> -->
+                    <div class="col-3">
+                        <label for="transaction-status" class="">Tanggal</label>
+
+                        <div class="form-group d-flex">
+                            <div class="date-icon">
+                                <i class="fa-solid fa-calendar-days px-2"></i>
+                            </div>
+                            <input name="daterange" placeholder="Selected date" id="date-picker-example"
+                                class="form-control datepicker pl-0">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-sm-flex align-items-center justify-content-between search-button">
+                            <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm px-3"><i
+                                        class="fa-solid fa-magnifying-glass mr-1"></i>Cari Pedagang
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-sm-flex align-items-center justify-content-between search-button">
+                            <a href="/merchants/new" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm px-3">
+                                <i class="fa-solid fa-magnifying-glass mr-1"></i>Tambah Pedagang Baru
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="example" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>ID Pedagang</th>
+                        <th>Nama Pedagang</th>
+                        <th>Nama Toko</th>
+                        <th>Tanggal Bergabung</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{range .merchants}}
+                        <tr>
+                            <td>{{.ID}}</td>
+                            <td>{{.Name}}</td>
+                            <td>{{.StoreName}}</td>
+                            <td>{{.JoinedAt}}</td>
+                            <td><span class="badge 
+                                        {{if eq .Status "new"}} badge-primary {{end}}
+                                        {{if eq .Status "open"}} badge-info {{end}}
+                                        {{if eq .Status "pending"}} badge-secondary {{end}}
+                                        {{if eq .Status "approved"}} badge-success {{end}}
+                                        {{if eq .Status "rejected"}} badge-danger {{end}}
+                                        {{if eq .Status "request approval"}} badge-warning {{end}}">{{.Status}}</span></td>
+                            <td><a href="/merchants/{{.ID}}">Lihat Detil</a></td>
+                        </tr>
+                    {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
